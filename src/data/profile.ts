@@ -20,6 +20,6 @@ export const profile: Profile = {
 
 export const links: LinkItem[] = [
   { id: "github", title: "GitHub", url: "https://github.com", icon: "💻" },
-  { id: "linkedin", title: "LinkedIn", url: "https://www.linkedin.com", icon: "💼" },
+  { id: "linkedin", title: "LinkedIn", url: "https://www.fotmob.com/", icon: "⚽" },
   { id: "blog", title: "Blog", url: "https://velog.io", icon: "✍️" },
 ];

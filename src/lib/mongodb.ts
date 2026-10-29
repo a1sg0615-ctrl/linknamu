@@ -11,7 +11,11 @@ declare global {
 export function getMongoClient(): Promise<MongoClient> | null {
   if (!uri) return null;
   if (!global._mongoClientPromise) {
-    global._mongoClientPromise = new MongoClient(uri).connect();
+    // 연결에 실패하면 캐시를 비워 다음 요청에서 다시 연결을 시도합니다.
+    global._mongoClientPromise = new MongoClient(uri).connect().catch((error) => {
+      global._mongoClientPromise = undefined;
+      throw error;
+    });
   }
   return global._mongoClientPromise;
 }
